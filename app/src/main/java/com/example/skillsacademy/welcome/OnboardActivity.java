@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.skillsacademy.MainActivity;
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.ActivityOnboardBinding;
+import com.example.skillsacademy.register.RegisterActivity;
 import com.example.skillsacademy.utilities.Utils;
 import com.example.skillsacademy.welcome.adapter.IntroviewAdapter;
 import com.example.skillsacademy.welcome.transformers.AntiClockSpinTransformation;
@@ -166,7 +167,7 @@ public class OnboardActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         //Toast.makeText(this, R.string.slides_ended, Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(OnboardActivity.this,MainActivity.class);
+        Intent intent=new Intent(OnboardActivity.this, RegisterActivity.class);
         startActivity(intent);
         finish();
     }
