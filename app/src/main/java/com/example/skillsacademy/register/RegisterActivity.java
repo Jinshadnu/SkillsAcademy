@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.ActivityRegisterBinding;
+import com.example.skillsacademy.home.HomeActivity;
 import com.example.skillsacademy.login.LoginActivity;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -22,6 +23,11 @@ public ActivityRegisterBinding registerBinding;
 
         registerBinding.textViewLogin.setOnClickListener(view -> {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        });
+
+
+        registerBinding.buttonRegister.setOnClickListener(view -> {
+            startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
         });
 
     }

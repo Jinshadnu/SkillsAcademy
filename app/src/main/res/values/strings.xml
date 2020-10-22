@@ -60,4 +60,10 @@
     <string name="vertical_flip">Vertical Flip</string>
     <string name="vertical_shut">Vertical Shut</string>
     <string name="zoom_out">Zoom Out</string>
+
+    //navigation icons
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="mycourse">My Course</string>
+    <string name="myprofile">Profile</string>
 </resources>

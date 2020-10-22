@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationHome"
+        android:icon="@drawable/ic_baseline_star_border_24"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/navigationSearch"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/search" />
+
+
+
+    <item android:id="@+id/navigationmyCorse"
+        android:icon="@drawable/ic_baseline_slow_motion_video_24"
+        android:title="@string/mycourse"/>
+    <item
+        android:id="@+id/navigationProfile"
+        android:icon="@drawable/ic_person_24"
+        android:title="@string/myprofile" />
+</menu>
