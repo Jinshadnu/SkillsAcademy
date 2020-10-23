@@ -2,6 +2,7 @@ package com.example.skillsacademy.home.navigation;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.skillsacademy.R;
+import com.example.skillsacademy.databinding.FragmentSearchBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +18,7 @@ import com.example.skillsacademy.R;
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
-
+public FragmentSearchBinding searchBinding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -61,6 +63,16 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        searchBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_search,container,false);
+
+        searchBinding.layoutBase.toolbar.setTitle("Search");
+
+        searchBinding.layoutBase.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24);
+        searchBinding.layoutBase.toolbar.setNavigationOnClickListener(v -> {
+            getActivity().onBackPressed();
+        });
+
+
+        return searchBinding.getRoot();
     }
 }

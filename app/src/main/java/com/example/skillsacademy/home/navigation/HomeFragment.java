@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -21,11 +22,14 @@ import android.widget.LinearLayout;
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.FragmentHomeBinding;
 import com.example.skillsacademy.home.adapter.CategoriesAdapater;
+import com.example.skillsacademy.home.adapter.DevelopmentAdapter;
 import com.example.skillsacademy.home.adapter.FeaturedAdapter;
 import com.example.skillsacademy.home.adapter.ImageSliderAdapter;
 import com.example.skillsacademy.home.pojo.Categories;
+import com.example.skillsacademy.home.pojo.Devolopment;
 import com.example.skillsacademy.home.pojo.Featured;
 import com.example.skillsacademy.home.viewmodel.CategoryViewModel;
+import com.example.skillsacademy.home.viewmodel.DevelopmentViewModel;
 import com.example.skillsacademy.home.viewmodel.FeaturedViewModel;
 
 import java.util.ArrayList;
@@ -42,6 +46,8 @@ public FeaturedAdapter featuredAdapter;
 public FeaturedViewModel featuredViewModel;
 public CategoryViewModel categoryViewModel;
 public CategoriesAdapater categoriesAdapater;
+public DevelopmentViewModel developmentViewModel;
+public DevelopmentAdapter developmentAdapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,6 +88,7 @@ public CategoriesAdapater categoriesAdapater;
         }
         featuredViewModel= ViewModelProviders.of((FragmentActivity)this.getActivity()).get(FeaturedViewModel.class);
         categoryViewModel=ViewModelProviders.of((FragmentActivity)this.getActivity()).get(CategoryViewModel.class);
+        developmentViewModel=ViewModelProviders.of((FragmentActivity)this.getActivity()).get(DevelopmentViewModel.class);
     }
 
     @Override
@@ -97,13 +104,28 @@ public CategoriesAdapater categoriesAdapater;
         fragmentHomeBinding.recyclerCategories.setLayoutManager(new GridLayoutManager(getActivity(),3));
         fragmentHomeBinding.recyclerCategories.setHasFixedSize(true);
 
+        fragmentHomeBinding.recyclerDevelopement.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false));
+        fragmentHomeBinding.recyclerDevelopement.setHasFixedSize(true);
+
         setValuesToFields();
 
         getFeaturedVideos();
 
         fetchCategories();
 
+        fetchCourses();
+
         return fragmentHomeBinding.getRoot();
+    }
+
+    private void fetchCourses() {
+        developmentViewModel.getCourse().observe((LifecycleOwner) this.getActivity(), new Observer<List<Devolopment>>() {
+            @Override
+            public void onChanged(List<Devolopment> devolopments) {
+                developmentAdapter=new DevelopmentAdapter(getActivity(),devolopments);
+                fragmentHomeBinding.recyclerDevelopement.setAdapter(developmentAdapter);
+            }
+        });
     }
 
     private void setValuesToFields() {

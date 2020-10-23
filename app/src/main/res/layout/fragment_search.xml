@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.navigation.SearchFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#f5f5f5"
+        tools:context=".home.navigation.SearchFragment">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <include
+                android:id="@+id/layoutBase"
+                layout="@layout/layout_base"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_background"
+                android:layout_below="@id/layoutBase"
+                app:queryHint="Search Here"
+                android:tooltipText="@string/myprofile"
+                android:autofillHints="Search Here"
+                app:defaultQueryHint="Search"
+                android:layout_marginLeft="@dimen/size_16dp"
+                android:layout_marginRight="@dimen/size_16dp"
+                android:layout_marginTop="@dimen/size_16dp"/>
+
+            <TextView
+                android:id="@+id/textView_top_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Searches"
+                android:textSize="@dimen/size_20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/amaranth"
+                android:layout_below="@id/searchview"
+                android:layout_marginTop="@dimen/padd_10"
+                android:layout_marginLeft="@dimen/size_16dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_courses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padd_10"
+                android:layout_below="@id/textView_top_search"/>
+
+
+
+
+        </RelativeLayout>
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+    </ScrollView>
+</layout>
