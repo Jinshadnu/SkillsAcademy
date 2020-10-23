@@ -26,7 +26,7 @@
                 android:id="@+id/rl_banner"
                 android:layout_width="match_parent"
                 android:layout_marginTop="0dp"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/size_180dp"
                 android:layout_below="@id/layoutBase"
                 android:focusableInTouchMode="true">
 
@@ -70,9 +70,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_featured"
-                android:layout_marginTop="@dimen/size_16dp"/>
+                android:layout_marginTop="@dimen/size_8dp"/>
 
+            <TextView
+                android:id="@+id/text_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories"
+                android:textSize="@dimen/size_20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/amaranth"
+                android:layout_below="@id/recycler_featured"
+                android:layout_marginTop="@dimen/size_8dp"
+                android:layout_marginLeft="@dimen/size_16dp"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_categories"
+                android:layout_marginTop="@dimen/size_8dp"/>
+
+            <TextView
+                android:id="@+id/text_developement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Courses in Development"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/size_20dp"
+                android:fontFamily="@font/amaranth"
+                android:layout_below="@id/recycler_categories"
+                android:layout_marginTop="@dimen/size_8dp"
+                android:layout_marginLeft="@dimen/size_16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_developement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_developement"
+                android:layout_marginTop="@dimen/size_8dp"
+                 />
         </RelativeLayout>
 
 

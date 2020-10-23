@@ -9,6 +9,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
@@ -19,9 +20,12 @@ import android.widget.LinearLayout;
 
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.FragmentHomeBinding;
+import com.example.skillsacademy.home.adapter.CategoriesAdapater;
 import com.example.skillsacademy.home.adapter.FeaturedAdapter;
 import com.example.skillsacademy.home.adapter.ImageSliderAdapter;
+import com.example.skillsacademy.home.pojo.Categories;
 import com.example.skillsacademy.home.pojo.Featured;
+import com.example.skillsacademy.home.viewmodel.CategoryViewModel;
 import com.example.skillsacademy.home.viewmodel.FeaturedViewModel;
 
 import java.util.ArrayList;
@@ -36,6 +40,8 @@ public class HomeFragment extends Fragment {
 public FragmentHomeBinding fragmentHomeBinding;
 public FeaturedAdapter featuredAdapter;
 public FeaturedViewModel featuredViewModel;
+public CategoryViewModel categoryViewModel;
+public CategoriesAdapater categoriesAdapater;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,6 +81,7 @@ public FeaturedViewModel featuredViewModel;
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         featuredViewModel= ViewModelProviders.of((FragmentActivity)this.getActivity()).get(FeaturedViewModel.class);
+        categoryViewModel=ViewModelProviders.of((FragmentActivity)this.getActivity()).get(CategoryViewModel.class);
     }
 
     @Override
@@ -87,9 +94,14 @@ public FeaturedViewModel featuredViewModel;
         fragmentHomeBinding.recyclerFeatured.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         fragmentHomeBinding.recyclerFeatured.setHasFixedSize(true);
 
+        fragmentHomeBinding.recyclerCategories.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        fragmentHomeBinding.recyclerCategories.setHasFixedSize(true);
+
         setValuesToFields();
 
         getFeaturedVideos();
+
+        fetchCategories();
 
         return fragmentHomeBinding.getRoot();
     }
@@ -142,5 +154,16 @@ public FeaturedViewModel featuredViewModel;
          fragmentHomeBinding.recyclerFeatured.setAdapter(featuredAdapter);
          }
      });
+    }
+
+    private void fetchCategories() {
+        categoryViewModel.getCatrgories().observe((LifecycleOwner) this, new Observer<List<Categories>>() {
+            @Override
+            public void onChanged(List<Categories> categoriesList) {
+                categoriesAdapater=new CategoriesAdapater(getActivity(),categoriesList);
+                fragmentHomeBinding.recyclerCategories.setAdapter(categoriesAdapater);
+
+            }
+        });
     }
 }
