@@ -19,13 +19,13 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
-    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_title">Welcome to Skill Academy</string>
     <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
 
-    <string name="slide_2_title">Movie Tickets</string>
+    <string name="slide_2_title">Find the Best Course and Become Master</string>
     <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
 
-    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_title">Discover of the Power Knowledge</string>
     <string name="slide_3_desc">Best discounts on every single service we offer!</string>
 
     <string name="slide_4_title">World Travel</string>

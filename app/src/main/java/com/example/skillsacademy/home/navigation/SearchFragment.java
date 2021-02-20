@@ -4,6 +4,12 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +17,11 @@ import android.view.ViewGroup;
 
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.FragmentSearchBinding;
+import com.example.skillsacademy.home.adapter.TopSearchAdapter;
+import com.example.skillsacademy.home.pojo.TopSearches;
+import com.example.skillsacademy.home.viewmodel.TopSearchViewModel;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +29,8 @@ import com.example.skillsacademy.databinding.FragmentSearchBinding;
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
+    public TopSearchViewModel searchViewModel;
+    public TopSearchAdapter topSearchAdapter;
 public FragmentSearchBinding searchBinding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,13 +70,14 @@ public FragmentSearchBinding searchBinding;
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        searchViewModel= ViewModelProviders.of((FragmentActivity)this.getActivity()).get(TopSearchViewModel.class);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        searchBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_search,container,false);
+            searchBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_search,container,false);
 
         searchBinding.layoutBase.toolbar.setTitle("Search");
 
@@ -72,7 +86,21 @@ public FragmentSearchBinding searchBinding;
             getActivity().onBackPressed();
         });
 
+        searchBinding.recyclerTopsearches.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        searchBinding.recyclerTopsearches.setHasFixedSize(true);
+
+        getCourse();
+
 
         return searchBinding.getRoot();
+    }
+    public void  getCourse(){
+        searchViewModel.getCourse().observe((LifecycleOwner) this.getActivity(), new Observer<List<TopSearches>>() {
+            @Override
+            public void onChanged(List<TopSearches> topSearches) {
+                topSearchAdapter=new TopSearchAdapter(getActivity(),topSearches);
+                searchBinding.recyclerTopsearches.setAdapter(topSearchAdapter);
+            }
+        });
     }
 }

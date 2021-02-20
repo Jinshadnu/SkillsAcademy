@@ -1,11 +1,13 @@
 package com.example.skillsacademy.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.skillsacademy.R;
 import com.example.skillsacademy.databinding.LayoutFeaturedBinding;
+import com.example.skillsacademy.details.CourseDetailsActivity;
 import com.example.skillsacademy.home.pojo.Featured;
 
 import java.util.List;
@@ -36,6 +38,10 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
        Featured featured=featuredList.get(position);
        holder.featuredBinding.setFeatured(featured);
+       holder.featuredBinding.cardFeatured.setOnClickListener(v -> {
+           Intent intent=new Intent(context.getApplicationContext(), CourseDetailsActivity.class);
+           context.startActivity(intent);
+       });
     }
 
     @Override

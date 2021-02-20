@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="topsearches"
+            type="com.example.skillsacademy.home.pojo.TopSearches" />
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardBackgroundColor="@color/colorwhite"
+        android:layout_marginLeft="@dimen/padd_10"
+        android:layout_marginTop="@dimen/padd_10"
+        app:cardElevation="@dimen/padd_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padd_10">
+
+
+            <TextView
+                android:id="@+id/textView_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/colorblack"
+                android:textSize="@dimen/size_16dp"
+                android:text="@{topsearches.course_name}" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

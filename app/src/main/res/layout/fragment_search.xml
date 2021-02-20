@@ -13,8 +13,6 @@
             android:layout_height="match_parent">
 
 
-
-
             <include
                 android:id="@+id/layoutBase"
                 layout="@layout/layout_base"
@@ -50,13 +48,86 @@
                 />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_courses"
+                android:id="@+id/recycler_topsearches"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padd_10"
                 android:layout_below="@id/textView_top_search"/>
 
+            <TextView
+                android:id="@+id/textView_browseCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Browse Categories"
+                android:textSize="@dimen/size_20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/amaranth"
+                android:layout_below="@id/recycler_topsearches"
+                android:layout_marginTop="@dimen/padd_10"
+                android:layout_marginLeft="@dimen/size_16dp"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textView_browseCategories"
+                app:cardBackgroundColor="@color/colorwhite"
+                android:layout_marginTop="@dimen/padd_10">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView_mobileapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mobile App Development"
+                        android:textSize="@dimen/size_16dp"
+                        android:textColor="@color/colorblack"
+                        android:drawableLeft="@drawable/ic_baseline_phone_android_24"
+                        android:fontFamily="@font/amaranth"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                        android:padding="@dimen/size_5dp"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:drawablePadding="@dimen/padd_10"
+                        android:layout_marginLeft="@dimen/size_16dp"
+                        />
+                    <TextView
+                        android:id="@+id/textView_webapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Web Development"
+                        android:textSize="@dimen/size_16dp"
+                        android:textColor="@color/colorblack"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                        android:drawableLeft="@drawable/ic_baseline_web_24"
+                        android:fontFamily="@font/amaranth"
+                        android:padding="@dimen/size_5dp"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:drawablePadding="@dimen/padd_10"
+                        android:layout_marginLeft="@dimen/size_16dp"
+                        />
+                    <TextView
+                        android:id="@+id/textView_digitalmarketing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Digital Marketing"
+                        android:textSize="@dimen/size_16dp"
+                        android:textColor="@color/colorblack"
+                        android:drawableLeft="@drawable/ic_baseline_assignment_24"
+                        android:fontFamily="@font/amaranth"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                        android:padding="@dimen/size_5dp"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:drawablePadding="@dimen/padd_10"
+                        android:layout_marginLeft="@dimen/size_16dp"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
 
         </RelativeLayout>

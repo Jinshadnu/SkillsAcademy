@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5"
+        tools:context=".details.CourseDetailsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/layoutBase"
+                        layout="@layout/layout_base"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@color/colorwhite">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imgProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="300dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/android_development">
+
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/txtHeading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/amaranth"
+                                android:paddingStart="10dp"
+                                android:paddingTop="@dimen/size_20dp"
+                                android:paddingEnd="@dimen/size_5dp"
+                                android:text="Android App Development"
+                                android:textColor="@color/colorblack"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="@dimen/size_5dp" />
+
+                            <TextView
+                                android:id="@+id/txtUnit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/amaranth"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="@dimen/size_5dp"
+                                android:text="Sample Heading for the product"
+                                android:textColor="@color/colorblack"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="@dimen/size_5dp" />
+
+
+
+                            <TextView
+                                android:id="@+id/txtFinalPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/amaranth"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="@dimen/size_5dp"
+                                android:paddingBottom="@dimen/size_10dp"
+                                android:text="Price : ₹ 000000.00"
+                                android:textColor="@color/colorblack"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="@dimen/size_5dp" />
+
+
+
+                        </LinearLayout>
+
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_videos"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </LinearLayout>
+
+
+
+            </ScrollView>
+
+
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

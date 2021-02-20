@@ -19,10 +19,10 @@ public class FeaturedRepository {
         MutableLiveData mutableLiveData=new MutableLiveData();
 
         List<Featured> featuredList=new ArrayList<>();
-        featuredList.add(new Featured(R.drawable.bg,"Android Development","30 lesson"));
-        featuredList.add(new Featured(R.drawable.bg,"SEO","45 lesson"));
-        featuredList.add(new Featured(R.drawable.bg,"WEB Development","28 lesson"));
-        featuredList.add(new Featured(R.drawable.bg,"IOS Development ","28 lesson"));
+        featuredList.add(new Featured(R.drawable.android_development,"Android Development","30 lesson"));
+        featuredList.add(new Featured(R.drawable.seo,"SEO","45 lesson"));
+        featuredList.add(new Featured(R.drawable.php_web_development,"WEB Development","28 lesson"));
+        featuredList.add(new Featured(R.drawable.android_development,"IOS Development ","28 lesson"));
 
         mutableLiveData.setValue(featuredList);
 

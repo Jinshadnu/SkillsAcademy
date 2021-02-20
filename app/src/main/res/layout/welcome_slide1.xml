@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,10 +12,12 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="@dimen/img_width_height"
                 android:layout_height="@dimen/img_width_height"
-                android:src="@drawable/welcomescreen1" />
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/welcome"
+                />
 
             <TextView
                 android:layout_width="wrap_content"

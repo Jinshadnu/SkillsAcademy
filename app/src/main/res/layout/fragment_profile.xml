@@ -1,14 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.navigation.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".home.navigation.ProfileFragment">
 
-</FrameLayout>
+        <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Vingcoz Technologies Pvt Ltd."
+            android:textColor="@color/colorblack"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+        <include
+            android:id="@+id/layoutBase"
+            layout="@layout/layout_base"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="@dimen/size_150dp"
+            android:layout_height="@dimen/size_150dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/vingcozlogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutBase" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            tools:layout_editor_absoluteX="234dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView_mycourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="My Courses"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_baseline_ondemand_video_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+
+                <TextView
+                    android:id="@+id/textView_editprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="Edit Profile"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_person_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+
+
+                <TextView
+                    android:id="@+id/textView_aboutus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="About US"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_baseline_portrait_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="Change Password"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_baselin_lock_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+
+
+                <TextView
+                    android:id="@+id/textView_privacy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="Privacy Policy"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_baseline_privacy_tip_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+                <TextView
+                    android:id="@+id/textView_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
+                    android:text="Logout"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/size_15dp"
+                    android:textColor="@color/colorblack"
+                    android:drawableLeft="@drawable/ic_baseline_power_settings_new_24"
+                    android:layout_marginLeft="@dimen/size_5dp"
+                    android:drawablePadding="@dimen/size_8dp"
+                    android:textSize="@dimen/size_16dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -6,6 +6,7 @@
             type="com.example.skillsacademy.home.pojo.Featured" />
     </data>
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_featured"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -27,15 +28,16 @@
             <ImageView
                 android:id="@+id/course_image"
                 android:layout_width="180dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/size_100dp"
                 android:adjustViewBounds="true"
                 android:transitionName="image"
+                android:scaleType="fitXY"
                 app:featured="@{featured.image}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/bg" />
+                app:srcCompat="@drawable/web_slide" />
 
             <TextView
                 android:id="@+id/lesson_name"
